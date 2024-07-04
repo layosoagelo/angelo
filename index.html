@@ -131,6 +131,16 @@
                 </div>
             </div>
         </div>
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Receipt</h5>
+                        <textarea class="form-control mb-3" rows="10" id="receipt" readonly style="font-size: 12px;"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     
     <script>
@@ -168,7 +178,9 @@
 
             document.getElementById('change').value = `Change: ₱${change >= 0 ? change : 0}`;
         }
-    </script>
-</body>
-</html>
-    
+
+        function placeOrder() {
+            const orders = document.getElementById('carts').value;
+            const total = document.getElementById('total').value;
+            const cash = document.getElementById('cash').value;
+           
