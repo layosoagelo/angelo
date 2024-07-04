@@ -166,7 +166,7 @@
             const cash = parseFloat(document.getElementById('cash').value) || 0;
             const change = cash - total;
 
-            document.getElementById('change').value = `Change: ₱${change >= 0 ? change : 0}`;
+            document.getElementById('change').value = `Change: ₱${change >= 0 ? change.toFixed(2) : 0}`;
         }
 
         function checkout() {
@@ -185,4 +185,4 @@
                 return;
             }
 
-            alert
+            alert(`Order Summary:\n\n${orderDetails}\nTotal: ₱${total}\nCash Tendered: ₱${cash}\nChange:
