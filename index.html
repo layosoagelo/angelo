@@ -143,7 +143,7 @@
         </div>
     </div>
     
-      <script>
+    <script>
         function updateOrder() {
             const prices = [150, 200, 250, 270, 170, 270];
             const quantities = [
@@ -178,6 +178,9 @@
 
             document.getElementById('change').value = `Change: ₱${change >= 0 ? change : 0}`;
         }
-    </script>
-</body>
-</html>     
+
+        function placeOrder() {
+            const orderDetails = document.getElementById('carts').value;
+            const total = document.getElementById('total').value;
+            const cash = document.getElementById('cash').value;
+            const change
