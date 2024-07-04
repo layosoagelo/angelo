@@ -67,7 +67,7 @@
             <div class="col-md-4 text-center d-flex">
                 <div class="card w-100">
                     <div class="card-body">
-                        <h5 class="card-title">Buffalo Chicken </h5>
+                        <h5 class="card-title">Buffalo Chicken</h5>
                         <img src="Buffalo Chicken.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
                         <p class="card-text">Price: ₱200.00</p>
                         <input type="number" class="form-control" id="qty2" placeholder="Enter quantity" oninput="updateOrder()"/>
@@ -99,7 +99,7 @@
             <div class="col-md-4 text-center d-flex">
                 <div class="card w-100">
                     <div class="card-body">
-                        <h5 class="card-title">Buffal-Chicken-Pizza</h5>
+                        <h5 class="card-title">Buffalo Chicken Pizza</h5>
                         <img src="Buffalo-Chicken-Pizza-.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
                         <p class="card-text">Price: ₱170.00</p>
                         <input type="number" class="form-control" id="qty5" placeholder="Enter quantity" oninput="updateOrder()"/>
@@ -126,6 +126,7 @@
                         <input type="text" class="form-control border-0 mb-3" id="total" readonly placeholder="Total"/>
                         <input type="number" class="form-control mb-3" id="cash" placeholder="Cash Tendered" oninput="calculateChange()"/>
                         <input type="text" class="form-control border-0 mb-3" id="change" readonly placeholder="Change"/>
+                        <button class="btn btn-primary" onclick="checkout()">Checkout</button>
                     </div>
                 </div>
             </div>
@@ -167,6 +168,21 @@
 
             document.getElementById('change').value = `Change: ₱${change >= 0 ? change : 0}`;
         }
-    </script>
-</body>
-</html>
+
+        function checkout() {
+            const orderDetails = document.getElementById('carts').value;
+            const total = parseFloat(document.getElementById('total').value.replace('Total: ₱', '')) || 0;
+            const cash = parseFloat(document.getElementById('cash').value) || 0;
+            const change = cash - total;
+
+            if (total === 0) {
+                alert('No items selected.');
+                return;
+            }
+
+            if (cash < total) {
+                alert('Insufficient cash. Please enter a higher amount.');
+                return;
+            }
+
+            alert
