@@ -10,7 +10,7 @@
 
     <style>
         body {
-            background-image: url('images (4).jpeg'); /* Replace with your background image URL */
+            background-image: url('angelo.jpeg'); /* Replace with your background image URL */
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -160,4 +160,14 @@
             const cash = parseFloat(document.getElementById('cash').value) || 0;
             const change = cash - total;
 
-            document.getElementById('change').value = `Change: ₱${change >= 0 ? change.toFixed(2) : 
+            document.getElementById('change').value = `Change: ₱${change >= 0 ? change.toFixed(2) : '0.00'}`;
+        }
+
+        function checkout() {
+            const total = parseFloat(document.getElementById('total').value.replace('Total: ₱', '')) || 0;
+            const cash = parseFloat(document.getElementById('cash').value) || 0;
+
+            if (cash < total) {
+                alert('Cash tendered is less than the total amount. Please enter a valid amount.');
+            } else {
+               
