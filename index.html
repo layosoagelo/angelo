@@ -131,59 +131,6 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-5">
-            <div class="col-12 text-center">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Receipt</h5>
-                        <textarea class="form-control mb-3" rows="10" id="receipt" readonly style="font-size: 12px;"></textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-        function updateOrder() {
-            const prices = [150, 200, 250, 270, 170, 270];
-            const quantities = [
-                document.getElementById('qty1').value,
-                document.getElementById('qty2').value,
-                document.getElementById('qty3').value,
-                document.getElementById('qty4').value,
-                document.getElementById('qty5').value,
-                document.getElementById('qty6').value
-            ];
-            
-            let orderDetails = '';
-            let total = 0;
-
-            quantities.forEach((quantity, index) => {
-                if (quantity > 0) {
-                    let itemTotal = quantity * prices[index];
-                    orderDetails += `Item ${index + 1}: ₱${prices[index]} x ${quantity} = ₱${itemTotal}\n`;
-                    total += itemTotal;
-                }
-            });
-
-            document.getElementById('carts').value = orderDetails;
-            document.getElementById('total').value = `Total: ₱${total}`;
-            calculateChange();
-        }
-
-        function calculateChange() {
-            const total = parseFloat(document.getElementById('total').value.replace('Total: ₱', '')) || 0;
-            const cash = parseFloat(document.getElementById('cash').value) || 0;
-            const change = cash - total;
-
-            document.getElementById('change').value = `Change: ₱${change >= 0 ? change : 0}`;
-        }
-
-        function placeOrder() {
-            const orderDetails = document.getElementById('carts').value;
-            const total = document.getElementById('total').value;
-            const cash = document.getElementById('cash').value;
-            const change
 <script>
         function updateOrder() {
             const prices = [150, 200, 250, 270, 170, 270];
