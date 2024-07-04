@@ -36,39 +36,39 @@
             <div class="col-4 text-center">
                 <label id="product1">BBQ Chicken</label>
                 <img src="BBQ Chicken.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
-                <label for="product1" id="price1">170.00</label>
+                <label for="product1" id="price1">₱170.00</label>
                 <input type="number" class="form-control" id="qty1" placeholder="Enter quantity" oninput="updateOrder()"/><br>
             </div>
             <div class="col-4 text-center">
                 <label id="product2">Buffalo Chicken</label>
                 <img src="Buffalo Chicken.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
-                <label for="product2" id="price2">200.00</label>
+                <label for="product2" id="price2">₱200.00</label>
                 <input type="number" class="form-control" id="qty2" placeholder="Enter quantity" oninput="updateOrder()"/><br>
             </div>
             <div class="col-4 text-center">
                 <label id="product3">Hawaiian</label>
                 <img src="Hawaiian.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
-                <label for="product3" id="price3">270.00</label>
+                <label for="product3" id="price3">₱270.00</label>
                 <input type="number" class="form-control" id="qty3" placeholder="Enter quantity" oninput="updateOrder()"/><br>
             </div>
         </div>
         <div class="row">
             <div class="col-4 text-center">
-                <label id="product4">Margherita.avif</label>
+                <label id="product4">Margherita</label>
                 <img src="Margherita.avif" style="width:400px;height:500px;" class="img-thumbnail"/><br>
-                <label for="product4" id="price4">190.00</label>
+                <label for="product4" id="price4">₱190.00</label>
                 <input type="number" class="form-control" id="qty4" placeholder="Enter quantity" oninput="updateOrder()"/><br>
             </div>
             <div class="col-4 text-center">
                 <label id="product5">Mushroom and Olive</label>
                 <img src="Mushroom and Olive.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
-                <label for="product5" id="price5">250.00</label>
+                <label for="product5" id="price5">₱250.00</label>
                 <input type="number" class="form-control" id="qty5" placeholder="Enter quantity" oninput="updateOrder()"/><br>
             </div>
             <div class="col-4 text-center">
                 <label id="product6">Shrimp Scampi</label>
                 <img src="Shrimp Scampi.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
-                <label for="product6" id="price6">300.00</label>
+                <label for="product6" id="price6">₱300.00</label>
                 <input type="number" class="form-control" id="qty6" placeholder="Enter quantity" oninput="updateOrder()"/><br>
             </div>
         </div>
@@ -76,13 +76,13 @@
             <div class="col-4 text-center">
                 <label id="product7">White Pizza</label>
                 <img src="White Pizza.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
-                <label for="product7" id="price7">250.00</label>
+                <label for="product7" id="price7">₱250.00</label>
                 <input type="number" class="form-control" id="qty7" placeholder="Enter quantity" oninput="updateOrder()"/><br>
             </div>
             <div class="col-4 text-center">
                 <label id="product8">Four Cheese</label>
                 <img src="Four Cheese.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
-                <label for="product8" id="price8">200.00</label>
+                <label for="product8" id="price8">₱200.00</label>
                 <input type="number" class="form-control" id="qty8" placeholder="Enter quantity" oninput="updateOrder()"/><br>
             </div>
             <div class="col-4">
@@ -91,6 +91,7 @@
                 <input type="text" class="form-control border-0" id="total" readonly placeholder="Total"/>
                 <input type="number" class="form-control" id="cash" placeholder="Cash Tendered" oninput="calculateChange()"/>
                 <input type="text" class="form-control border-0" id="change" readonly placeholder="Change"/>
+                <button class="btn btn-primary mt-2" onclick="checkout()">Checkout</button>
             </div>
         </div>
     </div>
@@ -130,6 +131,10 @@
             const change = cash - total;
 
             document.getElementById('change').value = `Change: ₱${change >= 0 ? change : 0}`;
+        }
+
+        function checkout() {
+            alert("Order placed successfully!\n" + document.getElementById('carts').value + document.getElementById('total').value);
         }
     </script>
 </body>
