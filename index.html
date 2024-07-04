@@ -145,7 +145,7 @@
             quantities.forEach((quantity, index) => {
                 if (quantity > 0) {
                     let itemTotal = quantity * prices[index];
-                    orderDetails += `Item ${index + 1}: ₱${prices[index]} x ${quantity} = ₱${itemTotal}\n`;
+                    orderDetails += `Item ${index + 1}: ₱${prices[index]} x ${quantity} = ₱${itemTotal.toFixed(2)}\n`;
                     total += itemTotal;
                 }
             });
@@ -164,10 +164,4 @@
         }
 
         function checkout() {
-            const total = parseFloat(document.getElementById('total').value.replace('Total: ₱', '')) || 0;
-            const cash = parseFloat(document.getElementById('cash').value) || 0;
-
-            if (cash < total) {
-                alert('Cash tendered is less than the total amount. Please enter a valid amount.');
-            } else {
-               
+            const total = parseFloat(document.getElementById('total').value.replace('Total:
