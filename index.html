@@ -26,12 +26,6 @@
             object-fit: cover;
         }
 
-        .card {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
         .card-body {
             display: flex;
             flex-direction: column;
@@ -58,7 +52,7 @@
                 <div class="card w-100">
                     <div class="card-body">
                         <h5 class="card-title">Shrimp Scampi</h5>
-                        <img src="Shrimp Scampi.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
+                        <img src="Shrimp Scampi.jpg" style="width:400px;height:500px;" class="img-thumbnail" alt="Shrimp Scampi"/><br>
                         <p class="card-text">Price: ₱150.00</p>
                         <input type="number" class="form-control" id="qty1" placeholder="Enter quantity" oninput="updateOrder()"/>
                     </div>
@@ -68,7 +62,7 @@
                 <div class="card w-100">
                     <div class="card-body">
                         <h5 class="card-title">White Pizza</h5>
-                        <img src="White Pizza.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
+                        <img src="White Pizza.jpg" style="width:400px;height:500px;" class="img-thumbnail" alt="White Pizza"/><br>
                         <p class="card-text">Price: ₱200.00</p>
                         <input type="number" class="form-control" id="qty2" placeholder="Enter quantity" oninput="updateOrder()"/>
                     </div>
@@ -78,7 +72,7 @@
                 <div class="card w-100">
                     <div class="card-body">
                         <h5 class="card-title">Four Cheese</h5>
-                        <img src="Four Cheese.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
+                        <img src="Four Cheese.jpg" style="width:400px;height:500px;" class="img-thumbnail" alt="Four Cheese"/><br>
                         <p class="card-text">Price: ₱250.00</p>
                         <input type="number" class="form-control" id="qty3" placeholder="Enter quantity" oninput="updateOrder()"/>
                     </div>
@@ -90,7 +84,7 @@
                 <div class="card w-100">
                     <div class="card-body">
                         <h5 class="card-title">Hawaiian</h5>
-                        <img src="Hawaiian.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
+                        <img src="Hawaiian.jpg" style="width:400px;height:500px;" class="img-thumbnail" alt="Hawaiian"/><br>
                         <p class="card-text">Price: ₱270.00</p>
                         <input type="number" class="form-control" id="qty4" placeholder="Enter quantity" oninput="updateOrder()"/>
                     </div>
@@ -100,7 +94,7 @@
                 <div class="card w-100">
                     <div class="card-body">
                         <h5 class="card-title">BBQ Chicken</h5>
-                        <img src="BBQ Chicken.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
+                        <img src="BBQ Chicken.jpg" style="width:400px;height:500px;" class="img-thumbnail" alt="BBQ Chicken"/><br>
                         <p class="card-text">Price: ₱170.00</p>
                         <input type="number" class="form-control" id="qty5" placeholder="Enter quantity" oninput="updateOrder()"/>
                     </div>
@@ -109,8 +103,8 @@
             <div class="col-md-4 text-center d-flex">
                 <div class="card w-100">
                     <div class="card-body">
-                        <h5 class="card-title">Buffalo-Chicken-Pizza</h5>
-                        <img src="Buffalo-Chicken-Pizza-.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
+                        <h5 class="card-title">Buffalo Chicken Pizza</h5>
+                        <img src="Buffalo-Chicken-Pizza-.jpg" style="width:400px;height:500px;" class="img-thumbnail" alt="Buffalo Chicken Pizza"/><br>
                         <p class="card-text">Price: ₱270.00</p>
                         <input type="number" class="form-control" id="qty6" placeholder="Enter quantity" oninput="updateOrder()"/>
                     </div>
@@ -126,6 +120,7 @@
                         <input type="text" class="form-control border-0 mb-3" id="total" readonly placeholder="Total"/>
                         <input type="number" class="form-control mb-3" id="cash" placeholder="Cash Tendered" oninput="calculateChange()"/>
                         <input type="text" class="form-control border-0 mb-3" id="change" readonly placeholder="Change"/>
+                        <button class="btn btn-primary" onclick="checkout()">Checkout</button>
                     </div>
                 </div>
             </div>
@@ -136,12 +131,12 @@
         function updateOrder() {
             const prices = [150, 200, 250, 270, 170, 270];
             const quantities = [
-                document.getElementById('qty1').value,
-                document.getElementById('qty2').value,
-                document.getElementById('qty3').value,
-                document.getElementById('qty4').value,
-                document.getElementById('qty5').value,
-                document.getElementById('qty6').value
+                parseInt(document.getElementById('qty1').value) || 0,
+                parseInt(document.getElementById('qty2').value) || 0,
+                parseInt(document.getElementById('qty3').value) || 0,
+                parseInt(document.getElementById('qty4').value) || 0,
+                parseInt(document.getElementById('qty5').value) || 0,
+                parseInt(document.getElementById('qty6').value) || 0
             ];
             
             let orderDetails = '';
@@ -156,7 +151,7 @@
             });
 
             document.getElementById('carts').value = orderDetails;
-            document.getElementById('total').value = `Total: ₱${total}`;
+            document.getElementById('total').value = `Total: ₱${total.toFixed(2)}`;
             calculateChange();
         }
 
@@ -165,8 +160,4 @@
             const cash = parseFloat(document.getElementById('cash').value) || 0;
             const change = cash - total;
 
-            document.getElementById('change').value = `Change: ₱${change >= 0 ? change : 0}`;
-        }
-    </script>
-</body>
-</html>
+            document.getElementById('change').value = `Change: ₱${change >= 0 ? change.toFixed(2) : 
