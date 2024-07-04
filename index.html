@@ -9,15 +9,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <style>
         body {
-            background-image: url('angelo.jpg');
+            background-image: url('background-photo.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
+            background-position: center;
         }
         .container {
             background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 10px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -112,23 +114,4 @@
             quantities.forEach((quantity, index) => {
                 if (quantity > 0) {
                     let itemTotal = quantity * prices[index];
-                    orderDetails += `Item ${index + 1}: ₱${prices[index]} x ${quantity} = ₱${itemTotal}\n`;
-                    total += itemTotal;
-                }
-            });
-
-            document.getElementById('carts').value = orderDetails;
-            document.getElementById('total').value = `Total: ₱${total}`;
-            calculateChange();
-        }
-
-        function calculateChange() {
-            const total = parseFloat(document.getElementById('total').value.replace('Total: ₱', '')) || 0;
-            const cash = parseFloat(document.getElementById('cash').value) || 0;
-            const change = cash - total;
-
-            document.getElementById('change').value = `Change: ₱${change >= 0 ? change : 0}`;
-        }
-    </script>
-</body>
-</html>
+                    orderDetails += `Item ${index + 
