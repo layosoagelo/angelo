@@ -1,223 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANGELO's PIZZA</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-        <style>
-        body {
-    background-color: #f5f5f5;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANGELO'S PIZZA HUT</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+    background-color: #f5f5f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .navbar {
-    background-color: #563d7c;
-    color: white;
+    background-color: #563d7c;
+    color: white;
 }
 .navbar-brand img {
-    max-height: 20px;
-    margin-right: 10px;
+    max-height: 40px;
+    margin-right: 10px;
 }
 .card {
-    border-radius: 15px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 2px solid #563d7c;
-    background: white;
+    border-radius: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 2px solid #563d7c;
+    background: white;
 }
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 .card-body {
-    background: #563d7c;
-    color: white;
+    background: #563d7c;
+    color: white;
 }
 .btn-primary {
-    background-color: #563d7c;
-    border-color: #563d7c;
-    transition: background-color 0.3s, border-color 0.3s;
+    background-color: #563d7c;
+    border-color: #563d7c;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 .btn-primary:hover {
-    background-color: #452b5e;
-    border-color: #452b5e;
+    background-color: #452b5e;
+    border-color: #452b5e;
 }
 .section-title {
-    font-size: 2em;
-    color: #563d7c;
-    text-shadow: 2px 2px 2px #ccc;
-    margin-bottom: 20px;
-    animation: fadeIn 2s;
+    font-size: 2em;
+    color: #563d7c;
+    text-shadow: 2px 2px 2px #ccc;
+    margin-bottom: 20px;
+    animation: fadeIn 2s;
 }
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
-    </style>
+    </style>
 </head>
 <body>
-        
-    <style>
-        body {
-            background-image: url('angelo.jpg'); /* Replace with your background image URL */
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: center;
-        }
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                 Angelo's Pizza Huts
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
 
-        .card {
-            background: rgba(255, 255, 255, 0.8); /* Semi-transparent background for cards */
-        }
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12 text-center mb-3">
+                <h2 class="section-title">☕ Welcome to Angelo's Pizza Hut</h2>
+                <p>Your favorite spot for quality coffee and delightful treats.</p>
+                <p>By: Angelo Layoso BSIT 3-B</p>
+                <hr class="hr" />
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card">
+                    <img src="BBQ Chicken.jpg" class="card-img-top" alt="Affogato">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">BBQ Chicken <span class="badge rounded-pill text-bg-primary">NEW</span></h5>
+                        <p class="card-text">Price: ₱<span id="price1">150.00</span></p>
+                        <input type="number" class="form-control mb-2" id="qty1" placeholder="Enter quantity">
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="Hawaiian.jpg" class="card-img-top" alt="Coffee Choco">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Hawaiian<span class="badge rounded-pill text-bg-primary">POPULAR</span></h5>
+                        <p class="card-text">Price: ₱<span id="price2">95.00</span></p>
+                        <input type="number" class="form-control mb-2" id="qty2" placeholder="Enter quantity">
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="Buffalo-Chicken-Pizza-.jpg" class="card-img-top" alt="Cappuccino">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Buffalon Chicken Pizza<span class="badge rounded-pill text-bg-primary">BEST SELLER</span></h5>
+                        <p class="card-text">Price: ₱<span id="price3">190.00</span></p>
+                        <input type="number" class="form-control mb-2" id="qty3" placeholder="Enter quantity">
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        .card img {
-            max-height: 100px; /* Adjust this value as needed */
-            object-fit: cover;
-        }
+        <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
+            <div class="col">
+                <div class="card">
+                    <img src="juday4.jpeg" class="card-img-top" alt="Americano Coffee">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Americano Coffee<span class="badge rounded-pill text-bg-primary">POPULAR</span></h5>
+                        <p class="card-text">Price: ₱<span id="price4">180.00</span></p>
+                        <input type="number" class="form-control mb-2" id="qty4" placeholder="Enter quantity">
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="juday5.jpeg" class="card-img-top" alt="Caffe Mocha">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Caffe Mocha<span class="badge rounded-pill text-bg-primary">BEST SELLER</span></h5>
+                        <p class="card-text">Price: ₱<span id="price5">230.00</span></p>
+                        <input type="number" class="form-control mb-2" id="qty5" placeholder="Enter quantity">
+                    </div>
+                </div>
+            </div>
+              <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <label for="carts" class="form-label">Orders</label>
+                        <textarea class="form-control mb-2" rows="10" id="carts" readonly></textarea>
+                        <input type="text" class="form-control mb-2" id="total" readonly placeholder="Total">
+                        <input type="number" class="form-control mb-2" id="cash" placeholder="Cash Tendered">
+                        <input type="text" class="form-control mb-2" id="change" readonly placeholder="Change">
+                        <button class="btn btn-success w-100 checkoutBtn">
+                            <i class="fas fa-shopping-cart"></i> Checkout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        .card {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        // Initialize event listeners after DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            var quantities = document.querySelectorAll('[id^="qty"]');
+            var checkoutButton = document.querySelector('.checkoutBtn');
+            var cashInput = document.getElementById("cash");
 
-        .card-body {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            flex-grow: 1;
-        }
+            quantities.forEach(function(input) {
+                input.addEventListener('input', function() {
+                    addOrder();
+                });
+            });
 
-        .card-title,
-        .card-text {
-            margin-bottom: 10px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container mt-5">
-        <div class="row mb-4">
-            <div class="col-12 text-center">
-                <h2>NASA PIZZA KO ANG TUNAY NA SARAP</h2>
-                <hr />
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-md-4 text-center d-flex">
-                <div class="card w-100">
-                    <div class="card-body">
-                        <h5 class="card-title">BBQ Chicken</h5>
-                        <img src="BBQ Chicken.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
-                        <p class="card-text">Price: ₱150.00</p>
-                        <input type="number" class="form-control" id="qty1" placeholder="Enter quantity" oninput="updateOrder()"/>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 text-center d-flex">
-                <div class="card w-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Hawaiian</h5>
-                        <img src="Hawaiian.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
-                        <p class="card-text">Price: ₱200.00</p>
-                        <input type="number" class="form-control" id="qty2" placeholder="Enter quantity" oninput="updateOrder()"/>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 text-center d-flex">
-                <div class="card w-100">
-                    <div class="card-body">
-                        <h5 class="card-title">White Pizza</h5>
-                        <img src="White Pizza.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
-                        <p class="card-text">Price: ₱250.00</p>
-                        <input type="number" class="form-control" id="qty3" placeholder="Enter quantity" oninput="updateOrder()"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-md-4 text-center d-flex">
-                <div class="card w-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Four Cheese</h5>
-                        <img src="Four Cheese.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
-                        <p class="card-text">Price: ₱270.00</p>
-                        <input type="number" class="form-control" id="qty4" placeholder="Enter quantity" oninput="updateOrder()"/>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 text-center d-flex">
-                <div class="card w-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Buffalo Chicken</h5>
-                        <img src="Buffalo Chicken.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
-                        <p class="card-text">Price: ₱170.00</p>
-                        <input type="number" class="form-control" id="qty5" placeholder="Enter quantity" oninput="updateOrder()"/>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 text-center d-flex">
-                <div class="card w-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Buffalo-Chicken-Pizza</h5>
-                        <img src="Buffalo-Chicken-Pizza-.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
-                        <p class="card-text">Price: ₱270.00</p>
-                        <input type="number" class="form-control" id="qty6" placeholder="Enter quantity" oninput="updateOrder()"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 text-center">
-                <div class="card">
-                    <div class="card-body">
-                        <label for="carts">Orders</label>
-                        <textarea class="form-control mb-3" rows="10" id="carts" readonly style="font-size: 12px;"></textarea>
-                        <input type="text" class="form-control border-0 mb-3" id="total" readonly placeholder="Total"/>
-                        <input type="number" class="form-control mb-3" id="cash" placeholder="Cash Tendered" oninput="calculateChange()"/>
-                        <input type="text" class="form-control border-0 mb-3" id="change" readonly placeholder="Change"/>
-                        <button class="btn btn-primary" onclick="placeOrder()">Place Order</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-<script>
-        function updateOrder() {
-            const prices = [150, 200, 250, 270, 170, 270];
-            const quantities = [
-                document.getElementById('qty1').value,
-                document.getElementById('qty2').value,
-                document.getElementById('qty3').value,
-                document.getElementById('qty4').value,
-                document.getElementById('qty5').value,
-                document.getElementById('qty6').value
-            ];
-            
-            let orderDetails = '';
-            let total = 0;
+            checkoutButton.addEventListener('click', function() {
+                calculateChange();
+            });
 
-            quantities.forEach((quantity, index) => {
-                if (quantity > 0) {
-                    let itemTotal = quantity * prices[index];
-                    orderDetails += `Item ${index + 1}: ₱${prices[index]} x ${quantity} = ₱${itemTotal}\n`;
-                    total += itemTotal;
-                }
-            });
+            function addOrder() {
+                var carts = document.getElementById("carts");
+                carts.value = ""; // Clear carts textarea
 
-            document.getElementById('carts').value = orderDetails;
-            document.getElementById('total').value = `Total: ₱${total}`;
-            calculateChange();
-        }
+                for (let i = 1; i <= 8; i++) {
+                    var qtyInput = document.getElementById("qty" + i);
+                    var productTitle = document.querySelector("#qty" + i).closest(".card-body").querySelector(".card-title").innerText;
+                    var productPrice = parseFloat(document.getElementById("price" + i).innerText);
 
-        function calculateChange() {
-            const total = parseFloat(document.getElementById('total').value.replace('Total: ₱', '')) || 0;
-            const cash = parseFloat(document.getElementById('cash').value) || 0;
-            const change = cash - total;
+                    if (qtyInput.value > 0) {
+                        var order = `${qtyInput.value} pcs x ${productTitle} - ₱${(qtyInput.value * productPrice).toFixed(2)}\n`;
+                        carts.value += order;
+                    }
+                }
 
-            document.getElementById('change').value = `Change: ₱${change >= 0 ? change : 0}`;
-        }
-    </script>
+                updateTotal(); // Update total after adding order
+            }
+
+            function updateTotal() {
+                var total = 0;
+
+                for (let i = 1; i <= 8; i++) {
+                    var qtyInput = document.getElementById("qty" + i);
+                    var productPrice = parseFloat(document.getElementById("price" + i).innerText);
+
+                    total += qtyInput.value * productPrice;
+                }
+
+                document.getElementById("total").value = total.toFixed(2); // Update total input
+            }
+
+            function calculateChange() {
+                var total = parseFloat(document.getElementById("total").value);
+                var cash = parseFloat(cashInput.value);
+                var change = cash - total;
+
+                document.getElementById("change").value = change.toFixed(2); // Update change input
+            }
+        });
+    </script>
 </body>
 </html>
-        
