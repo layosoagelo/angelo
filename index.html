@@ -22,19 +22,19 @@
                 <label id="produc1">Hawaiian</label>
                 <img src="Hawaiian.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
                 <label for="product1" id="price1">200.00</label>
-                <input type="number" class="form-control" id="qty1" placeholder="Enter quantity"/><br>
+                <input type="number" class="form-control" id="qty1" placeholder="Enter quantity" oninput="updateOrder()"/><br>
             </div>
             <div class="col-4 text-center">
-                <label id="product2">buffalo Chicken</label>
+                <label id="product2">Buffalo Chicken</label>
                 <img src="Buffalo Chicken.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
                 <label for="product2" id="price2">300.00</label>
-                <input type="number" class="form-control" id="qty2" placeholder="Enter quantity"/><br>
+                <input type="number" class="form-control" id="qty2" placeholder="Enter quantity" oninput="updateOrder()"/><br>
             </div>
             <div class="col-4 text-center">
                 <label id="product3">Buffalo Pizza</label>
                 <img src="Buffalo-Chicken-Pizza-.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
                 <label for="product3" id="price3">270.00</label>
-                <input type="number" class="form-control" id="qty3" placeholder="Enter quantity"/><br>
+                <input type="number" class="form-control" id="qty3" placeholder="Enter quantity" oninput="updateOrder()"/><br>
             </div>
         </div>
         <div class="row">
@@ -42,19 +42,19 @@
                 <label id="product4">Four Cheese</label>
                 <img src="Four Cheese.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
                 <label for="product4" id="price4">190.00</label>
-                <input type="number" class="form-control" id="qty4" placeholder="Enter quantity"/><br>
+                <input type="number" class="form-control" id="qty4" placeholder="Enter quantity" oninput="updateOrder()"/><br>
             </div>
             <div class="col-4 text-center">
                 <label id="product5">Mushroom and Olive</label>
                 <img src="Mushroom and Olive.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
                 <label for="product5" id="price5">250.00</label>
-                <input type="number" class="form-control" id="qty5" placeholder="Enter quantity"/><br>
+                <input type="number" class="form-control" id="qty5" placeholder="Enter quantity" oninput="updateOrder()"/><br>
             </div>
             <div class="col-4 text-center">
                 <label id="product6">White Pizza</label>
                 <img src="White Pizza.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
                 <label for="product6" id="price6">300.00</label>
-                <input type="number" class="form-control" id="qty6" placeholder="Enter quantity"/><br>
+                <input type="number" class="form-control" id="qty6" placeholder="Enter quantity" oninput="updateOrder()"/><br>
             </div>
         </div>
         <div class="row">
@@ -62,59 +62,61 @@
                 <label id="product7">Shrimp Scampi</label>
                 <img src="Shrimp Scampi.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
                 <label for="product7" id="price7">250.00</label>
-                <input type="number" class="form-control" id="qty7" placeholder="Enter quantity"/><br>
+                <input type="number" class="form-control" id="qty7" placeholder="Enter quantity" oninput="updateOrder()"/><br>
             </div>
             <div class="col-4 text-center">
                 <label id="product8">BBQ Chicken</label>
                 <img src="BBQ Chicken.jpg" style="width:400px;height:500px;" class="img-thumbnail"/><br>
                 <label for="product8" id="price8">200.00</label>
-                <input type="number" class="form-control" id="qty8" placeholder="Enter quantity"/><br>
+                <input type="number" class="form-control" id="qty8" placeholder="Enter quantity" oninput="updateOrder()"/><br>
             </div>
             <div class="col-4">
                 <label for="carts">Orders</label><br>
                 <textarea class="form-control" rows="29" id="carts" cols="200" readonly style="width:350px;height: 400px;font-size: 12px;"></textarea>
                 <input type="text" class="form-control border-0" id="total" readonly placeholder="Total"/>
-                <input type="number" class="form-control" id="cash" placeholder="Cash Tendered"/>
+                <input type="number" class="form-control" id="cash" placeholder="Cash Tendered" oninput="calculateChange()"/>
                 <input type="text" class="form-control border-0" id="change" readonly placeholder="Change"/>
             </div>
         </div>
     </div>
     
-<script>
-        function updateOrder() {
-            const prices = [150, 200, 250, 270, 170, 270];
-            const quantities = [
-                document.getElementById('qty1').value,
-                document.getElementById('qty2').value,
-                document.getElementById('qty3').value,
-                document.getElementById('qty4').value,
-                document.getElementById('qty5').value,
-                document.getElementById('qty6').value
-            ];
-            
-            let orderDetails = '';
-            let total = 0;
+    <script>
+        function updateOrder() {
+            const prices = [200.00, 300.00, 270.00, 190.00, 250.00, 300.00, 250.00, 200.00];
+            const quantities = [
+                document.getElementById('qty1').value,
+                document.getElementById('qty2').value,
+                document.getElementById('qty3').value,
+                document.getElementById('qty4').value,
+                document.getElementById('qty5').value,
+                document.getElementById('qty6').value,
+                document.getElementById('qty7').value,
+                document.getElementById('qty8').value
+            ];
+            
+            let orderDetails = '';
+            let total = 0;
 
-            quantities.forEach((quantity, index) => {
-                if (quantity > 0) {
-                    let itemTotal = quantity * prices[index];
-                    orderDetails += `Item ${index + 1}: ₱${prices[index]} x ${quantity} = ₱${itemTotal}\n`;
-                    total += itemTotal;
-                }
-            });
+            quantities.forEach((quantity, index) => {
+                if (quantity > 0) {
+                    let itemTotal = quantity * prices[index];
+                    orderDetails += `Item ${index + 1}: ₱${prices[index]} x ${quantity} = ₱${itemTotal.toFixed(2)}\n`;
+                    total += itemTotal;
+                }
+            });
 
-            document.getElementById('carts').value = orderDetails;
-            document.getElementById('total').value = `Total: ₱${total}`;
-            calculateChange();
-        }
+            document.getElementById('carts').value = orderDetails;
+            document.getElementById('total').value = `Total: ₱${total.toFixed(2)}`;
+            calculateChange();
+        }
 
-        function calculateChange() {
-            const total = parseFloat(document.getElementById('total').value.replace('Total: ₱', '')) || 0;
-            const cash = parseFloat(document.getElementById('cash').value) || 0;
-            const change = cash - total;
+        function calculateChange() {
+            const total = parseFloat(document.getElementById('total').value.replace('Total: ₱', '')) || 0;
+            const cash = parseFloat(document.getElementById('cash').value) || 0;
+            const change = cash - total;
 
-            document.getElementById('change').value = `Change: ₱${change >= 0 ? change : 0}`;
-        }
-    </script>
+            document.getElementById('change').value = `Change: ₱${change >= 0 ? change.toFixed(2) : '0.00'}`;
+        }
+    </script>
 </body>
 </html>
